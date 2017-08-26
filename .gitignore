@@ -3,3 +3,7 @@
 .idea/modules.xml
 .idea/react-0.11.2.iml
 .idea/workspace.xml
+
+#sample 'basic-commonjs'
+react-starter-kit/examples/basic-commonjs/bundle.js
+react-starter-kit/examples/basic-commonjs/node_modules/

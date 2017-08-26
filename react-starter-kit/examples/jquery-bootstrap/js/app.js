@@ -91,19 +91,25 @@ var Example = React.createClass({
       this.refs.modal.close();
     }
   },
+
+  openModal: function() {
+    this.refs.modal.open();
+  },
+  closeModal: function() {
+    this.refs.modal.close();
+  },
+
   render: function() {
+    /*declare a */
     var modal = null;
     modal = (
-      <BootstrapModal
-        ref="modal"
-        confirm="OK"
-        cancel="Cancel"
-        onCancel={this.handleCancel}
-        onConfirm={this.closeModal}
-        title="Hello, Bootstrap!">
-          This is a React component powered by jQuery and Bootstrap!
+      <BootstrapModal ref="modal" title="Hello, Bootstrap!"
+                      confirm="OK" cancel="Cancel"
+                      onConfirm={this.closeModal} onCancel={this.handleCancel} >
+        This is a React component powered by jQuery and Bootstrap!
       </BootstrapModal>
     );
+
     return (
       <div className="example">
         {modal}
@@ -111,12 +117,6 @@ var Example = React.createClass({
       </div>
     );
   },
-  openModal: function() {
-    this.refs.modal.open();
-  },
-  closeModal: function() {
-    this.refs.modal.close();
-  }
 });
 
 React.renderComponent(<Example />, document.getElementById('jqueryexample'));

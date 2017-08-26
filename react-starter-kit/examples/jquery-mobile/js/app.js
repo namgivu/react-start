@@ -36,7 +36,8 @@ var App = React.createClass({
   displayName: 'App',
 
   render: function() {
-    return React.DOM.div({className:'app'},
+    return React.DOM.div(
+      {className:'app'},
       JQueryMobilePage({id:'one'}, PageOneContent(null)),
       JQueryMobilePage({id:'two'}, PageTwoContent(null)),
       JQueryMobilePage({id:'popup', headerTheme:'b'}, PagePopUpContent(null))

@@ -14,9 +14,11 @@ var BallmerPeakCalculator = React.createClass({
   getInitialState: function() {
     return {bac: 0};
   },
+
   handleChange: function(event) {
     this.setState({bac: event.target.value});
   },
+
   render: function() {
     var pct = computeBallmerPeak(this.state.bac);
     if (isNaN(pct)) {
@@ -24,6 +26,7 @@ var BallmerPeakCalculator = React.createClass({
     } else {
       pct = (100 - Math.round(pct * 100)) + '%';
     }
+
     return (
       <div>
         <img src="./ballmer_peak.png" />

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="build/react.js"></script>
+  <script src="build/JSXTransformer.js"></script>
+</head>
+
+<body>
+  <div id="mountPoint"></div>
+
+  <script type="text/jsx">
+    /** @jsx React.DOM */
+
+    var List = React.createClass({
+      render: function(){
+        console.log(this.props.items);
+        return (
+          <ul>
+          {
+            this.props.items.map(function(item){
+              return (
+                <li key={item}>{item}</li>
+              );
+            })
+          }
+          </ul>
+        );
+      },
+    });
+
+    var FilteredList = React.createClass({
+
+      render: function(){
+        return (
+          <div className="my-component">
+            <List items={this.state.items} />
+          </div>
+        );
+      },
+
+      componentWillMount: function(){
+        console.log(this.state.initialItems);
+        this.setState({items: this.state.initialItems})
+      },
+
+      getInitialState: function(){
+        return {
+          initialItems: ['item01', 'item02'],
+          items: [],
+        }
+      },
+
+    });
+
+    React.renderComponent(
+      <FilteredList />,
+      document.getElementById('mountPoint')
+    );
+  </script>
+
+</body>
+
+</html>
